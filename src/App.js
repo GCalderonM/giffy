@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link, Route } from 'wouter'
 import './App.css';
+import ListOfGifs from './components/ListOfGifs';
 import getGifs from './services/getGifs';
 
 function App() {
-  const [gifs, setGifs] = useState([])
-
-  useEffect(() => {
-    getGifs({ keyword: 'dragon'}).then(gifs => setGifs(gifs))
-  }, [])
-
   return (
     <div className="App">
       <section className="App-content">
-        {
-          gifs.map(singleGif => {
-            return <div>
-              <img alt={singleGif.id} src={singleGif.url} />
-              <br />
-              <span>{singleGif.title}</span>
-            </div>  
-          })
-        }
+        <h1>Giffy</h1>
+        <Link to="/gif/panda">Ver pandas</Link>
+        <Link to="/gif/food">Ver comida</Link>
+        <Link to="/gif/matrix">Ver matrix</Link>
+        <Link to="/gif/programming">Ver programacion</Link>
+        <Route component={ListOfGifs} path="/gif/:keyword" />
       </section>
     </div>
   );

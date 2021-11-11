@@ -1,0 +1,15 @@
+.GifBox {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.GifBox img {
+    object-fit: contain;
+    width: 256px;
+}
